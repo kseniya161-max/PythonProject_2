@@ -5,32 +5,38 @@ import json
 
 class BaseClass(ABC):
     @abstractmethod
-    def connection(self):
+    def _connection(self):
         pass
 
     @abstractmethod
-    def vacancies(self):
+    def vacancies(self, keyword, per_page=20):
         pass
 
 class Connect(BaseClass):
     """Класс подключения к API"""
-    base_url = "https://api.hh.ru/"
 
     def __init__(self):
-        self.session = None
+        self._session = None
+        self._base_url = "https://api.hh.ru/"
 
-    def connection(self):
+    def _connection(self):
         """Подключение к API"""
-        self.session = requests.Session()
-        print ("Успешное подключение к API")
+        self._session = requests.Session()
+        response = self._session.get(self._base_url)
+        if response.status_code == 200:
+            print("Успешное подключение к API")
+        else:
+            print(f"Ошибка подключения: {response.status_code}")
 
-    def vacancies(self):
+
+    def vacancies(self, keyword, per_page=20):
         """ Получение вакансий"""
 
-        if self.session is None:
-            print("Сначала необходимо установить соединение.")
-            return []
-        response = self.session.get(self.base_url + "vacancies")
+        if self._session is None:
+            self._connection()
+
+        params = {"text": keyword, "per_page": per_page}
+        response = self._session.get(self._base_url + "vacancies", params=params)
         if response.status_code == 200:
             vacancies = response.json().get("items", [])
             return vacancies
