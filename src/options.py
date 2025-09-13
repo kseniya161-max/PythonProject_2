@@ -12,6 +12,7 @@ class BaseClass(ABC):
     def vacancies(self, keyword, per_page=20):
         pass
 
+
 class Connect(BaseClass):
     """Класс подключения к API"""
 
@@ -28,7 +29,6 @@ class Connect(BaseClass):
         else:
             print(f"Ошибка подключения: {response.status_code}")
 
-
     def vacancies(self, keyword, per_page=20):
         """ Получение вакансий"""
 
@@ -43,9 +43,3 @@ class Connect(BaseClass):
         else:
             print(f"Нет подключения: {response.status_code}")
             return []
-
-
-
-
-
-
