@@ -23,6 +23,10 @@ class Connect(BaseClass):
     def _connection(self):
         """Подключение к API"""
         self._session = requests.Session()
+        self._session.headers.update({
+            'User-Agent': 'Kseniya161(baharevaxen@yandex.ru)',
+            'HH-User-Agent': 'Kseniya161(baharevaxen@yandex.ru)'
+        })
         response = self._session.get(self._base_url)
         if response.status_code == 200:
             print("Успешное подключение к API")

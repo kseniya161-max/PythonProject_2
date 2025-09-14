@@ -5,3 +5,4 @@ if __name__ == "__main__":
     vacancies = api.vacancies("разработчик")
     for vacancy in vacancies:
         print(vacancy['name'], vacancy['url'])
+
