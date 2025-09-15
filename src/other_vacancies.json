@@ -5,5 +5,11 @@
         "link": "https://example.com/vacancy/2",
         "salary": 90000,
         "description": "Ищем опытного программиста Java."
+    },
+    {
+        "name": "Программист Java",
+        "link": "https://example.com/vacancy/2",
+        "salary": 90000,
+        "description": "Ищем опытного программиста Java."
     }
 ]
