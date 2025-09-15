@@ -41,5 +41,3 @@ class VacancyWorking():
     def __gt__(self, other):
         """Магический метод который сравнивает зарплату "Больше"""
         return self.salary > other.salary
-
-

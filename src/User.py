@@ -50,6 +50,3 @@ def user_interreaction():
         else:
             print("Неверный ввод. Выберите действие")
 
-
-if __name__ == "__main__":
-    user_interreaction()
