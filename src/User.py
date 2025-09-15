@@ -16,6 +16,7 @@ def user_interreaction():
 
         user_choice = input("Выберите номер действия: ")
         if user_choice == "1":
+            keyword = input("Введите поисковые запросы: ")
             vacancies_data = api.vacancies(keyword)
             if vacancies_data:
                 print(f"Найдено {len("vacancies_data")} по запросу '{keyword}'.")
@@ -28,6 +29,40 @@ def user_interreaction():
             else:
                 print("Вакансии не найдены")
         elif user_choice == "2":
+            n = int(input("Введите количество вакансий: "))
+            keyword = input ("Введите поисковой запрос: ")
+            vacancies_data = api.vacancies(keyword)
+            sorted_vacancies = sorted(vacancies_data, key=lambda x: x.get("salary", {}).get('from', 0), reverse=True)[:n]
+            if sorted_vacancies:
+                for i, data in enumerate(sorted_vacancies, start = 1):
+                    name = data.get("name", "Нет названия")
+                    link = data.get("alternate_link", "Нет ссылки")
+                    salary_info = data.get('salary')
+                    salary = salary_info["from"] if salary_info and "from" in salary_info else 0
+                    print(f"{i}. {name} - {salary} - {link}")
+                else:
+                    print("Вакансии не найдены.")
+        elif user_choice == "3":
+            keyword = input("Введите ключевое слово для поиска в описании: ")
+            vacancies_data = api.vacancies(keyword)
+            filtered_vacancies = [data for data in vacancies_data if keyword.lower() in data.get('snippet', {}).get('requirement', '').lower()]
+            if filtered_vacancies:
+                for i, data in enumerate(filtered_vacancies, start=1):
+                    name = data.get("name", "Нет названия")
+                    link = data.get("alternate_url", "Нет ссылки")
+                    salary_info = data.get('salary')
+                    salary = salary_info["from"] if salary_info and "from" in salary_info else 0
+                    print(f"{i}. {name} - {salary} - {link}")
+            else:
+                print("Вакансии не найдены.")
+        elif user_choice == 4:
+            print("Выход из программы")
+            break
+        else:
+            print ("Неверный ввод. Выберите действие")
+
+
+
 
 
 
