@@ -43,26 +43,3 @@ class VacancyWorking():
         return self.salary > other.salary
 
 
-if __name__ == "__main__":
-    api = Connect()
-    vacancies_data = api.vacancies("разработчик")
-
-    vacancies = []
-    if vacancies_data:
-        for data in vacancies_data:
-            if data is not None:
-                name = data.get('name', 'Нет названия')
-                link = data.get('alternate_url', 'Нет ссылки')
-                salary_info = data.get('salary')
-                salary = salary_info['from'] if salary_info and 'from' in salary_info else 0
-                description = data.get('snippet', {}).get('requirement', 'Нет описания')
-                vacancies.append(VacancyWorking(name, link, salary, description))
-            else:
-                print("Получены пустые данные для вакансии.")  # Выводим сообщение, если data None
-    else:
-        print("Нет данных о вакансиях.")
-    vacancies_list = [vacancy.to_dict() for vacancy in vacancies]
-    with open('vacancies.json', 'w', encoding='utf-8') as f:
-        json.dump(vacancies_list, f, ensure_ascii=False, indent=4)
-
-    print("Данные о вакансиях успешно сохранены в файл vacancies.json.")

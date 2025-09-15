@@ -3,6 +3,7 @@ from typing import Any, Dict
 import os
 import json
 
+
 class FileHandler(ABC):
     """Абстрактный класс для работы с файлами."""
 
@@ -58,6 +59,7 @@ class Saving(FileHandler):
         self.vacancies = [vacancy for vacancy in self.vacancies if vacancy.get("id") != vacancy_id]
         self._save_vacancies()
 
+
 if __name__ == "__main__":
     # Создаем экземпляр Saving для другого файла
     saving_handler = Saving(filename="my_vacancies.json")
@@ -93,7 +95,5 @@ if __name__ == "__main__":
 
     # Текущие вакансии
     print(other_saving_handler.vacancies)
-
-
 
 
