@@ -7,11 +7,13 @@ def api():
 
 
 def test_connections(api):
+    """Тестирует соединение"""
     api._connection()
     assert api._session is not None
 
 
 def test_vacancies(api):
+    """Тестирую что вакансия возвращаются списком и что есть поле name"""
     api._connection()
     vacancies = api.vacancies("руководитель")
     assert isinstance (vacancies, list)
