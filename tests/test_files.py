@@ -14,6 +14,7 @@ def saving_handler():
 
 
 def test_adding(saving_handler):
+    """Тестирует добавляет ли вакансии"""
     vacancy_data = {
         "id": "1",
         "name": "Программист",
@@ -26,6 +27,7 @@ def test_adding(saving_handler):
 
 
 def test_dublicate(saving_handler):
+    """Тетсируется добваляется ли дубликат"""
     vacancy_data = {
         "id": "1",
         "name": "Программист",
