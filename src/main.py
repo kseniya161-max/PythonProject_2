@@ -8,7 +8,7 @@ import json
 def main():
     api = Connect()
     saving_handler = Saving(filename="my_vacancies.json")
-    user_interreaction()
+    user_interreaction(api, saving_handler)
 
     # Создание первой вакансии
     vacancy1 = VacancyWorking(
@@ -50,3 +50,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
