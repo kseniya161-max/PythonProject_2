@@ -7,7 +7,7 @@ from src.files import Saving
 
 def user_interreaction(api, saving_handler):
     """Функия взаимодействует с пользоателем"""
-    api = Connect()
+    # api = Connect()
     while True:
         print("\nВыберите действие: ")
         print("1. Введите вакансию")
