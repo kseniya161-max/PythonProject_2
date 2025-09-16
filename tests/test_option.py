@@ -1,6 +1,7 @@
 import pytest
 from src. options import Connect
 
+
 @pytest.fixture
 def api():
     return Connect()
@@ -16,10 +17,6 @@ def test_vacancies(api):
     """Тестирую что вакансия возвращаются списком и что есть поле name"""
     api._connection()
     vacancies = api.vacancies("руководитель")
-    assert isinstance (vacancies, list)
+    assert isinstance(vacancies, list)
     if vacancies:
         assert "name" in vacancies[0]
-
-
-
-

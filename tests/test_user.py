@@ -18,6 +18,7 @@ def mock_api():
     ]
     return api
 
+
 def test_user_interreaction_search_vacancy(mock_api, capsys):
     inputs = iter(["1", "Разработчик", "4"])
     with patch('builtins.input', lambda _: next(inputs)):
@@ -48,8 +49,3 @@ def test_print_vacancies(capsys):
     captured = capsys.readouterr()
     assert "1.Разработчик - 100000 - https://example.com/vacancy/1" in captured.out
     assert "2.Тестировщик - 80000 - https://example.com/vacancy/2" in captured.out
-
-
-
-
-

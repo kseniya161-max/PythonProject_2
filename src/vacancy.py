@@ -1,6 +1,7 @@
 from src. options import Connect
 import json
 
+
 class VacancyWorking():
     __slots__ = ('name', 'link', 'salary', 'description')
 
@@ -10,7 +11,7 @@ class VacancyWorking():
         self.salary = self._validate_salary(salary)
         self.description = description
 
-    def _validate_salary(self,salary: int):
+    def _validate_salary(self, salary: int):
         """Приватный метод для валидации зарплаты"""
         if salary is None:
             return 0

@@ -20,7 +20,6 @@ def filter_vacancies_by_keyword(vacancies_data: List[Dict[str, Any]], keyword: s
     """Фильтрует вакансии по ключевому слову в описании."""
     return [
                 data for data in vacancies_data
-                if data.get('snippet') and
-                data['snippet'].get('requirement') and
-                keyword.lower() in data['snippet']['requirement'].lower()
+                if data.get('snippet') and data['snippet'].get('requirement') and keyword.lower()
+                   in data['snippet']['requirement'].lower()
             ]

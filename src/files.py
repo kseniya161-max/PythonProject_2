@@ -30,14 +30,14 @@ class FileHandler(ABC):
 
 class Saving(FileHandler):
     """Класс который реализует методы для работы с json файлом"""
-    def __init__(self, filename = "vacancies.json"):
+    def __init__(self, filename="vacancies.json"):
         self._filename = filename
         self.vacancies = self._load_vacancies()
 
     def _load_vacancies(self):
         """Выгрузка вакансий из json файла"""
         if os.path.exists(self._filename):
-            with open(self._filename, "r", encoding = "UTF-8") as f:
+            with open(self._filename, "r", encoding="UTF-8") as f:
                 return json.load(f)
         return []
 
@@ -95,5 +95,3 @@ class Saving(FileHandler):
 #
 #     # Текущие вакансии
 #     print(other_saving_handler.vacancies)
-
-

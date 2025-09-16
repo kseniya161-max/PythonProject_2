@@ -5,6 +5,7 @@ from src.User import user_interreaction
 from src.Utils import print_vacancies, get_vacancies, filter_vacancies_by_keyword
 import json
 
+
 def main():
     api = Connect()
     saving_handler = Saving(filename="my_vacancies.json")
@@ -50,5 +51,3 @@ def main():
 
 if __name__ == "__main__":
     main()  # pragma: no cover
-
-

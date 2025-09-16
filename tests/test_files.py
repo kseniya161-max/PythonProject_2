@@ -38,4 +38,3 @@ def test_dublicate(saving_handler):
     saving_handler.add_vacancy(vacancy_data)
     saving_handler.add_vacancy(vacancy_data)
     assert len(saving_handler.vacancies) == 1
-

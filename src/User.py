@@ -42,7 +42,7 @@ def user_interreaction(api, saving_handler):
             vacancies_data = get_vacancies(api, keyword)
             filtered_vacancies = filter_vacancies_by_keyword(vacancies_data, keyword)
             if filtered_vacancies:
-                    print_vacancies(filtered_vacancies)
+                print_vacancies(filtered_vacancies)
             else:
                 print("Вакансии не найдены.")
         elif user_choice == "4":
@@ -56,5 +56,3 @@ def user_interreaction(api, saving_handler):
 #     api = Connect()
 #     saving_handler = Saving(filename="my_vacancies.json")
 #     user_interreaction(api, saving_handler)
-
-
