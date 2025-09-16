@@ -2,11 +2,12 @@ from src.options import Connect
 from src.vacancy import VacancyWorking
 from typing import List
 from src. Utils import print_vacancies, get_vacancies, filter_vacancies_by_keyword
+from src.files import Saving
 
 
-def user_interreaction():
+def user_interreaction(api, saving_handler):
     """Функия взаимодействует с пользоателем"""
-    api = Connect()
+    # api = Connect()
     while True:
         print("\nВыберите действие: ")
         print("1. Введите вакансию")
@@ -41,7 +42,7 @@ def user_interreaction():
             vacancies_data = get_vacancies(api, keyword)
             filtered_vacancies = filter_vacancies_by_keyword(vacancies_data, keyword)
             if filtered_vacancies:
-                    print_vacancies(filtered_vacancies)
+                print_vacancies(filtered_vacancies)
             else:
                 print("Вакансии не найдены.")
         elif user_choice == "4":
@@ -51,5 +52,7 @@ def user_interreaction():
             print("Неверный ввод. Выберите действие")
 
 
-if __name__ == "__main__":
-    user_interreaction()
+# if __name__ =="__main__":
+#     api = Connect()
+#     saving_handler = Saving(filename="my_vacancies.json")
+#     user_interreaction(api, saving_handler)
